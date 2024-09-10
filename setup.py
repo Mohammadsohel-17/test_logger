@@ -1,20 +1,32 @@
-from setuptools import find_packages, setup
+import os
+from setuptools import setup, find_packages
+from setuptools.command.install import install
+import subprocess
+ 
+class CustomInstallCommand(install):
+    """Custom handler for the 'install' command to remove unwanted packages."""
+    def run(self):
+        install.run(self)
+        # Run the post-install script
+        subprocess.call(['python', 'post_install.py'])
 
 setup(
-    name="log_abstractor",
-    version="1.1.2",
-    packages=find_packages(),
+    name="log_caller",  # Replace with your project's name
+    version="0.1.0",  # Replace with your project's version
+    packages=find_packages(),  # Automatically find and include packages
+    #package_data={'': ['deps/*']},
     install_requires=[
-        "structlog>=24.4.0", "scrubadub>=2.0.1",
+        "log_abstractor",# List your project dependencies here, or use a requirements.txt file
     ],
-    description="Optimized anonymizer with pre-scrubbing.",
-    author="Dipanjan Mazumder",
-    author_email="dmazumder@hhaexchange.com",
-    url="https://github.com/HHAeXchange/platform-logger",  
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-    ],
-    python_requires='>=3.6',  
+    cmdclass={
+        'install': CustomInstallCommand,  # Use the custom install command
+    },
+    author="dipanjan",  # Replace with your name
+    python_requires='>=3.6',
+    zip_safe=False,
+    # entry_points={
+    #     'console_scripts': [
+    #         'my_project=my_package.your_code:main',
+    #     ],
+    # },
 )
