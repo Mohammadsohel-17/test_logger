@@ -3,6 +3,7 @@ import subprocess
 def uninstall_unwanted_packages():
     # List the packages to uninstall
     packages = ['scipy','click','joblib', 'numpy','sklearn','scikit_learn','tqdm','stdnum','threadpoolctl']
+    print("######################## inside post install")
     for package in packages:
         try:
             subprocess.check_call(['pip', 'uninstall', '-y', package])
