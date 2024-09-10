@@ -6,9 +6,9 @@ import subprocess
 class CustomInstallCommand(install):
     """Custom handler for the 'install' command to remove unwanted packages."""
     def run(self):
-     print("######################## starting install.run")
+        print("######################## starting install.run")
         install.run(self)
-     print("######################## starting post install.run")
+        print("######################## starting post install.run")
         # Run the post-install script
         subprocess.call(['python', 'post_install.py'])
 
