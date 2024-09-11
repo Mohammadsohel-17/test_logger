@@ -18,7 +18,7 @@ setup(
     packages=find_packages(),  # Automatically find and include packages
     #package_data={'': ['deps/*']},
     install_requires=[
-        "structlog>=24.4.0",
+        "structlog>=24.4.0","scrubadub[base]",
 # List your project dependencies here, or use a requirements.txt file
     ],
     cmdclass={
