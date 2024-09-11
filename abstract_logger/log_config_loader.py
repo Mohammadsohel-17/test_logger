@@ -1,4 +1,4 @@
-from .imports import json, os
+import json, os
 
 
 class LogConfig:
