@@ -1,7 +1,7 @@
 import logging
 import sys
 
-# import structlog
+import structlog
 
 from abstract_logger.anonymizer import Anonymizer
 from abstract_logger.app_config import AppConfig
