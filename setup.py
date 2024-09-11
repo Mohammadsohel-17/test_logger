@@ -18,7 +18,8 @@ setup(
     packages=find_packages(),  # Automatically find and include packages
     #package_data={'': ['deps/*']},
     install_requires=[
-        "abstractor",# List your project dependencies here, or use a requirements.txt file
+        "structlog>=24.4.0", "scrubadub>=2.0.1",
+# List your project dependencies here, or use a requirements.txt file
     ],
     cmdclass={
         'install': CustomInstallCommand,  # Use the custom install command
