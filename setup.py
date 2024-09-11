@@ -18,7 +18,7 @@ setup(
     packages=find_packages(),  # Automatically find and include packages
     #package_data={'': ['deps/*']},
     install_requires=[
-        "log-abstractor",# List your project dependencies here, or use a requirements.txt file
+        # "log-abstractor",# List your project dependencies here, or use a requirements.txt file
     ],
     cmdclass={
         'install': CustomInstallCommand,  # Use the custom install command
